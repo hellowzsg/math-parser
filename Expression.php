@@ -241,8 +241,8 @@ class Expression
                     continue;
                 }
                 while (!$stack->isEmpty() && 
-                ($stack->top()!='(') && 
-                !$this->calculate->compareOperationPriority($exp[$i], $stack->top())) {
+                $stack->top()!='(' && 
+                $this->calculate->compareOperationPriority($stack->top(), $exp[$i])) {
                     $list[] = $stack->pop();
                 }
                 $stack->push($exp[$i]);
